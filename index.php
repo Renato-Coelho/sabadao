@@ -1,31 +1,8 @@
-
-<?php
-
-define( 'MYSQL_HOST', 'localhost' );
-define( 'MYSQL_USER', 'root' );
-define( 'MYSQL_PASSWORD', 'pempem18' );
-define( 'MYSQL_DB_NAME', 'maisfm_db' );
-
-try
-{
-    $PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD );
-}
-catch ( PDOException $e )
-{
-    echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
-}
-
+<?php require_once "connect.php";
 $sql = "SELECT * FROM usuarios";
 $result = $PDO->query( $sql );
-// $rows = $result->fetchAll();
 $allRows = $result->fetchAll(PDO::FETCH_OBJ); 
-
-
-
 ?>
-
-
-
 
 <!doctype html>
 <html>
